@@ -1,18 +1,20 @@
-/*
- * newton.cpp
- *
- *  Created on: Sep 28, 2013
- *      Author: tgjackson
- */
 
-#include "newton.h"
 #include <math.h>
-newton::newton() {
-	// TODO Auto-generated constructor stub
+#include <iostream>
+using namespace std;
 
-}
-
-newton::~newton() {
-	// TODO Auto-generated destructor stub
-}
+double newton(double(*f)(const double),double(*df)(const double),double x,int maxit,double tol){
+		cout<<endl;
+		double h=0;
+		for(int k=1;k<=maxit;k++){
+			h=f(x)/df(x);
+			x=x-h;
+			cout<<"  iter "<<k<<": x is "<<x<<endl;
+			cout<<"           |f(x)| is "<<fabs(f(x))<<endl;
+			if(fabs(h)<tol)
+				break;
+		}
+		cout<<"    error:  "<<fabs(f(x))<<endl;
+		return x;
+	}
 
