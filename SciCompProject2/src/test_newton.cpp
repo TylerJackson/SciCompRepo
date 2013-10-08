@@ -89,6 +89,15 @@ int main(){
 	cout<<endl;
 	cout<<endl;
 
+	//Xo=100 , tol=10^-10
+	x=100.0;
+	tol=pow(10.0,-10.0);
+	cout<<"Test 8: When Xo = 100, and tol = 10^-10"<<endl;
+	cout<<" our approximation for the root of the function is : "<<endl;
+	cout<<"                                                     "<<setprecision(10)<<newton(f,df,x,maxit,tol);
+	cout<<endl;
+	cout<<endl;
+
 	return 0;
 }
 double f(double x){
